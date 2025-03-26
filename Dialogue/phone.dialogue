@@ -1,0 +1,9 @@
+~ reach_phone_01
+: Contactes telefònics
+- Marga
+	: [wait=2]No respon[speed=0.1]...
+- Germana
+	Germana: [[Hey, que passa??|Deixa't de bromes, va.]]
+	Germana: Penjo.      PIIIIIIIIIP
+- No trucar => END
+=> END

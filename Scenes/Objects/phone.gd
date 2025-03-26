@@ -9,8 +9,10 @@ func _ready() -> void:
 
 func _on_interact():
 	# interactable.interact_name = "Is not answering ..."
-	await get_tree().create_timer(2).timeout
-	_reset_phone()
+	DialogueManager.show_example_dialogue_balloon(load("res://Dialogue/phone.dialogue"), "reach_phone_01")
+	# await get_tree().create_timer(2).timeout
+	# _reset_phone()
+	
 	# OS.delay_msec(2000)
 	# interactable.interact_name = "Call Marga"
 

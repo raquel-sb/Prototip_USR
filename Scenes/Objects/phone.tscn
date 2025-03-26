@@ -19,7 +19,7 @@ vframes = 8
 frame = 30
 
 [node name="Interactable" parent="." instance=ExtResource("2_8pvha")]
-interact_name = "Call Marga"
+interact_name = "Trucar"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
 position = Vector2(0, 12)
