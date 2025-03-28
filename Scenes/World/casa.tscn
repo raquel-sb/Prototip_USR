@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://l6gqxikp6td4" path="res://Assets/InteriorHouse/TopDownHouse_DoorsAndWindows.png" id="12_7bjru"]
 [ext_resource type="Texture2D" uid="uid://c65n136i4umtw" path="res://Assets/InteriorHouse/TopDownHouse_FurnitureState2.png" id="14_hgm1a"]
 [ext_resource type="Texture2D" uid="uid://0jowxgwmi5ko" path="res://TilesMerged/furniture_01.png" id="16_ysbhf"]
-[ext_resource type="PackedScene" uid="uid://b1ma6i7xa3t80" path="res://Scenes/Characters/Body00/body00.tscn" id="17_qbldh"]
+[ext_resource type="PackedScene" uid="uid://c3d5qs8ac7gar" path="res://Scenes/Characters/Mila/Mila.tscn" id="17_5t2l3"]
 [ext_resource type="Script" path="res://Scenes/World/follow_cam.gd" id="18_igka2"]
 [ext_resource type="PackedScene" uid="uid://ctqq6qxs2sc0n" path="res://Scenes/Objects/chest.tscn" id="19_tw35y"]
 [ext_resource type="PackedScene" uid="uid://cfhg2ublgfmpy" path="res://Scenes/Objects/phone.tscn" id="20_fvvef"]
@@ -3632,7 +3632,7 @@ texture = ExtResource("16_ysbhf")
 7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.68174, 9.57716, -6.57038, 1.89316, 6.7931, 1.7818, 6.68174, 9.68852)
 7:2/size_in_atlas = Vector2i(1, 2)
 7:2/0 = 0
-7:2/0/z_index = -1
+7:2/0/z_index = -4
 7:7/size_in_atlas = Vector2i(2, 3)
 7:7/0 = 0
 7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(11.6543, -10.0794, 11.3393, 19.5288, -11.0243, 19.2138, -11.0243, -10.3943)
@@ -3646,7 +3646,7 @@ texture = ExtResource("16_ysbhf")
 8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.68174, 9.57716, -6.57038, 1.89316, 6.7931, 1.7818, 6.68174, 9.68852)
 8:2/size_in_atlas = Vector2i(2, 1)
 8:2/0 = 0
-8:2/0/z_index = -1
+8:2/0/z_index = -4
 8:3/size_in_atlas = Vector2i(2, 1)
 8:3/0 = 0
 8:12/0 = 0
@@ -3857,10 +3857,10 @@ texture = ExtResource("16_ysbhf")
 23:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.68174, 9.57716, -6.57038, 1.89316, 6.7931, 1.7818, 6.68174, 9.68852)
 23:2/size_in_atlas = Vector2i(3, 2)
 23:2/0 = 0
-23:2/0/z_index = -1
+23:2/0/z_index = -4
 23:4/size_in_atlas = Vector2i(3, 3)
 23:4/0 = 0
-23:4/0/z_index = -1
+23:4/0/z_index = -4
 23:12/0 = 0
 23:12/0/y_sort_origin = 7
 23:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -3.35876, -8, -3.0052)
@@ -4157,9 +4157,9 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAZACYAAAAGAAoAAAAaACYAAAAIAAoAAAAZACcAAAAGAAsAAAAaACcAAAAIAAsAAAAXACYAAAAFAAoAAAAXACcAAAAFAAsAAAAYACYAAAAGAAoAAAAYACcAAAAGAAsAAAAhACYAAAAAAAgAAAAhAC4AAAAAAAgAAAAHAC4AAAAAAAgAAAAHACYAAAAAAAgAAAANACwAAQAJAAAAAAAOACwAAQAAAAIAAAAPACwAAQABAAIAAAAQACwAAQABAAIAAAARACwAAQABAAIAAAAPACsAAQAIAAAAAAAPAC0AAQAKAAAAAAARACsAAQAIAAAAAAARAC0AAQAKAAAAAAASACwAAQACAAIAAAATACwAAQAJAAAAABA=")
 tile_set = SubResource("TileSet_nqqjj")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("17_qbldh")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("17_5t2l3")]
 y_sort_enabled = true
-position = Vector2(364, 414)
+position = Vector2(285, 74)
 
 [node name="FollowCam" type="Camera2D" parent="." node_paths=PackedStringArray("tilemap", "follow_node")]
 limit_left = 0
@@ -4169,7 +4169,8 @@ tilemap = NodePath("../LayerHolder/GreenFloor")
 follow_node = NodePath("../CharacterBody2D")
 
 [node name="Chest" parent="." instance=ExtResource("19_tw35y")]
-position = Vector2(241, 440)
+visible = false
+position = Vector2(227, 450)
 
 [node name="Phone" parent="." instance=ExtResource("20_fvvef")]
 z_index = 1
