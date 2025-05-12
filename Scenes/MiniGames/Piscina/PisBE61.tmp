@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bc8f24yxuoi74"]
+
+[ext_resource type="Texture2D" uid="uid://c7gyree6q0vcl" path="res://Assets/MiniGames/Piscina/Fondo.png" id="1_2fetv"]
+[ext_resource type="PackedScene" uid="uid://sd6j6q3q1u3" path="res://Scenes/MiniGames/Piscina/Red.tscn" id="2_q03o2"]
+[ext_resource type="PackedScene" uid="uid://d2a5lcyf0hrdx" path="res://Scenes/MiniGames/Piscina/Hoja_01.tscn" id="3_6nxkb"]
+[ext_resource type="Script" path="res://Scenes/MiniGames/Piscina/hoja_spawner.gd" id="4_pmo7g"]
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(0.602397, 0.602397)
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(961, 540)
+texture = ExtResource("1_2fetv")
+
+[node name="Red" parent="." instance=ExtResource("2_q03o2")]
+z_index = 1
+position = Vector2(703.855, 547.812)
+
+[node name="Hoja_01" parent="." instance=ExtResource("3_6nxkb")]
+position = Vector2(1653.4, 225.765)
+
+[node name="HojaSpawner" type="Node2D" parent="."]
+position = Vector2(1923.98, 195.884)
+script = ExtResource("4_pmo7g")

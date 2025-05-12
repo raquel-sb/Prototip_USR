@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3 uid="uid://badvjb7lw0suq"]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_tok86"]
+
+[resource]
+script = ExtResource("1_tok86")
+using_states = PackedStringArray()
+titles = {}
+character_names = PackedStringArray()
+first_title = ""
+lines = {}
+raw_text = ""
+
+~ start
+Mare: Uff, no puc més
+Mare: Hay, perdona Mila! Estava parlant sola, què vols?
+- Estàs bé?
+	Mare: Sí.
+	Mare: No ho sé...
+	Mare: És tot massa complicat, però tu no et preocupis, que són coses meves.
+	Mare: Per cert, el pastís! No l'hem de treure del forn fins després de dinar.
+	Mare: I res d'intentar fer un tasteig abans! Encara està massa cru.
+- I el pastís?
+	Mare: Encara està al forn, trigarà una bona estona.
+	Mare: Però estarà a temps per la festa!
+do GameState.madre_dict["next"] = "start_bloqueado"
+=> END
+
+~ start_bloqueado
+Mare: He de sortir una estona, però tornaré de seguida.
+=> END

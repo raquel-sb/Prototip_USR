@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3 uid="uid://dqvrxmnfe0lby"]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_hfl3h"]
+
+[resource]
+script = ExtResource("1_hfl3h")
+using_states = PackedStringArray()
+titles = {}
+character_names = PackedStringArray()
+first_title = ""
+lines = {}
+raw_text = ""
+
+
+~ start
+Germana: Què vols!? 
+Germana: Perdona, és que m'he barallat amb la mare i no estic d'humor...
+- Em sap greu
+	Germana: No té res a veure amb tu, ho saps, oi? 
+	Germana: T'estimo molt però he de marxar, la Maria m'està esperant.
+	=> start_em_sap_greu
+- La mare té raó 
+	Germana: Tu també? Per això volies parlar amb mi?
+	Germana: Dona igual, me'n vaig. 
+	do GameState.hermana_dict["next"] = "start_mare_te_rao"
+	=> END
+	
+
+~ start_em_sap_greu
+- Però jo vull que et quedis
+	Germana: Ho sento molt Palometa, però també vull passar temps amb ella.
+	=> start_em_sap_greu_2
+- I la festa?
+	Germana: Sé que és important per a tu, però hi serà la mama i l'avi.
+	=> start_em_sap_greu_2
+
+~ start_em_sap_greu_2
+- La Maria també està invitada!
+	Germana: Sí, estàs segura? 
+	Germana: Però ella vol estar amb la seva familia també...
+	- Poden venir! 
+		Germana: Jajaja! Ets un sol, ho sabies? Aniré a preguntar-lis llavors, però no prometo res!
+		do GameState.invitados_fiesta["Hermana"] = true
+	- Jo també vull estar amb tu!
+		Germana: Ho sento, de veritat... 
+		Germana: Me'n vaig ja, que se'm farà tard.
+- Et trobaré a faltar...
+	Germana: Gràcies per entendre-ho. T'estimo.
+do GameState.hermana_dict["next"] = "start_bloqueado"
+=> END
+
+~ start_mare_te_rao
+Germana: No tinc ganes de parlar.
+=> END
+
+~ start_bloqueado
+Germana: Ara no puc parlar.
+=> END

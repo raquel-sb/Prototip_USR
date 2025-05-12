@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://4tumwy010k6b"]
+
+[ext_resource type="Script" path="res://Scenes/MiniGames/Tender/cesto.gd" id="1_rg4ua"]
+[ext_resource type="PackedScene" uid="uid://deqqsrl3d6i1d" path="res://Scenes/MiniGames/Tender/Tender.tscn" id="2_yqqtb"]
+[ext_resource type="Texture2D" uid="uid://dv7htacvdjyeo" path="res://Assets/MiniGames/Tender/cesto.png" id="3_rgbt0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqken"]
+size = Vector2(134.419, 157.958)
+
+[node name="Area2D" type="Area2D"]
+position = Vector2(196, 478)
+script = ExtResource("1_rg4ua")
+prenda_scene = ExtResource("2_yqqtb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_rgbt0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.56579
+shape = SubResource("RectangleShape2D_qqken")

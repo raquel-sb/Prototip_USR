@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://deqqsrl3d6i1d"]
+
+[ext_resource type="Texture2D" uid="uid://dxhcghk03sdfw" path="res://Assets/MiniGames/Tender/fondo.png" id="1_vevhm"]
+[ext_resource type="PackedScene" uid="uid://4tumwy010k6b" path="res://Scenes/MiniGames/Tender/cesto.tscn" id="2_k0lvt"]
+[ext_resource type="Script" path="res://Scenes/MiniGames/Tender/cuerda.gd" id="4_71u0o"]
+[ext_resource type="Texture2D" uid="uid://ufhaqvc7ijh6" path="res://Assets/MiniGames/Tender/cuerda.png" id="5_oikfc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0p7tf"]
+size = Vector2(704, 20)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(421, 282)
+texture = ExtResource("1_vevhm")
+
+[node name="Cesto" parent="." instance=ExtResource("2_k0lvt")]
+
+[node name="Cuerda" type="Node2D" parent="."]
+script = ExtResource("4_71u0o")
+
+[node name="Area2D" type="Area2D" parent="Cuerda"]
+position = Vector2(423, 181)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cuerda/Area2D"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_0p7tf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cuerda"]
+position = Vector2(423, 181)
+texture = ExtResource("5_oikfc")
+
+[node name="PuntoColgado1" type="Marker2D" parent="Cuerda"]
+position = Vector2(91, 170)
+
+[node name="PuntoColgado2" type="Marker2D" parent="Cuerda"]
+position = Vector2(173, 178)
+
+[node name="PuntoColgado3" type="Marker2D" parent="Cuerda"]
+position = Vector2(247, 180)
+
+[node name="PuntoColgado4" type="Marker2D" parent="Cuerda"]
+position = Vector2(329, 179)
+
+[node name="PuntoColgado5" type="Marker2D" parent="Cuerda"]
+position = Vector2(410, 179)
+
+[node name="PuntoColgado6" type="Marker2D" parent="Cuerda"]
+position = Vector2(503, 183)
+
+[node name="PuntoColgado7" type="Marker2D" parent="Cuerda"]
+position = Vector2(574, 182)
+
+[node name="PuntoColgado8" type="Marker2D" parent="Cuerda"]
+position = Vector2(639, 179)
+
+[node name="PuntoColgado9" type="Marker2D" parent="Cuerda"]
+position = Vector2(706, 182)

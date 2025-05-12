@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3 uid="uid://ehlwn0kjlj5u"]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ahlwr"]
+
+[resource]
+script = ExtResource("1_ahlwr")
+using_states = PackedStringArray()
+titles = {}
+character_names = PackedStringArray()
+first_title = ""
+lines = {}
+raw_text = ""
+
+~ start
+Yayo: Hola Mila, fa un dia molt bonic, veritat?
+do GameState.yayo_dict["next"] = "start_bloqueado"
+=> END
+
+~ start_bloqueado
+Yayo: ...
+=> END
+
+~ start_rio
+- Què fas al riu?
+	Yayo: No res.
+- Desde quan vens al riu?
+	Yayo: Un dies, o una setmana ja?
+do GameState.yayo_dict["next"] = "start_rio_2"
+=> END
+
+~ start_rio_2
+- Et fa res si t'acompanyo?
+	Yayo: Com vulguis.
+- No tens por de relliscar?
+	Yayo: A aquestes alçades ja no.
+do GameState.yayo_dict["next"] = "start_rio_3"
+=> END
+
+~ start_rio_3
+- Observar el riu
+	Yayo: És hipnòtic, veritat?
+- Observar l'avi
+	Yayo: No cal que em vigilis.
+do GameState.yayo_dict["next"] = "start_rio_4"
+=> END 
+
+~ start_rio_4
+Yayo: Estic bé, no necessito res.
+do GameState.yayo_dict["amount_talk_river"] += 1
+if GameState.yayo_dict["amount_talk_river"] >= 3:
+	=> start_rio_5
+else:
+	=> END
+
+~ start_rio_5
+Yayo: En veritat...
+Yayo: Estic aqui per mon germà.
+Yayo: Ell...
+Yayo: Va morir ofegat quan erem petits, en aquest riu.
+Yayo: Desde llavors li he tingut pànic.
+Yayo: Però no volia marxar sense fer les paus.
+Yayo: .
+Yayo: ..
+Yayo: ...
+Yayo: Li encantava nedar, i jo he trigat 60 anys a tornar-ho a fer.
+Yayo: Gràcies per escoltar-me.
+do GameState.invitados_fiesta["Yayo"] = true
+do GameState.yayo_dict["next"] = "start_rio_bloqueado"
+=> END
+
+~ start_rio_bloqueado
+Yayo: No et preocupis, arribaré a temps per la teva festa.
+=> END
