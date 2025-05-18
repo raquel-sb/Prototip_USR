@@ -1,9 +1,14 @@
 extends Area2D
 
 @export var lista_prendas: Array[PackedScene] = [
+	preload("res://Scenes/MiniGames/Tender/PrendaToalla.tscn"),
+	preload("res://Scenes/MiniGames/Tender/PrendaShort.tscn"),
+	preload("res://Scenes/MiniGames/Tender/PrendaPantalon.tscn"),
+	preload("res://Scenes/MiniGames/Tender/PrendaCalcetines.tscn"),
+	preload("res://Scenes/MiniGames/Tender/PrendaJersey.tscn"),
 	preload("res://Scenes/MiniGames/Tender/PrendaCamiseta.tscn")
 ]
-@onready var zona_colision = $"../Cuerda/Area2D/CollisionShape2D"
+@onready var zona_colision = $CollisionShape2D
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -48,5 +53,5 @@ func obtener_prenda_en_mano():
 	return null
 
 func esta_dentro_del_cesto(pos: Vector2) -> bool:
-	var local_pos = self.get_global_transform().affine_inverse() * pos
-	return local_pos.distance_to(Vector2.ZERO) < 50  # Ajusta el radio
+	var local_pos = zona_colision.get_global_transform().affine_inverse() * pos
+	return local_pos.distance_to(Vector2.ZERO) < 100  # Ajusta el radio

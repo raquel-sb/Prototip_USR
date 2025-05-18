@@ -37,13 +37,8 @@ Germana: Perdona, és que m'he barallat amb la mare i no estic d'humor...
 ~ start_em_sap_greu_2
 - La Maria també està invitada!
 	Germana: Sí, estàs segura? 
-	Germana: Però ella vol estar amb la seva familia també...
-	- Poden venir! 
-		Germana: Jajaja! Ets un sol, ho sabies? Aniré a preguntar-lis llavors, però no prometo res!
-		do GameState.invitados_fiesta["Hermana"] = true
-	- Jo també vull estar amb tu!
-		Germana: Ho sento, de veritat... 
-		Germana: Me'n vaig ja, que se'm farà tard.
+	Germana: Jajaja! Ets un sol, ho sabies? Aniré a preguntar-lis llavors, però no prometo res!
+	do GameState.invitados_fiesta["Hermana"] = true
 - Et trobaré a faltar...
 	Germana: Gràcies per entendre-ho. T'estimo.
 do GameState.hermana_dict["next"] = "start_bloqueado"

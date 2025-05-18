@@ -1,58 +1,77 @@
-[gd_scene load_steps=6 format=3 uid="uid://deqqsrl3d6i1d"]
+[gd_scene load_steps=8 format=3 uid="uid://d4gsd1dyuwyka"]
 
+[ext_resource type="Script" path="res://Scenes/MiniGames/Tender/tender.gd" id="1_ij5wx"]
 [ext_resource type="Texture2D" uid="uid://dxhcghk03sdfw" path="res://Assets/MiniGames/Tender/fondo.png" id="1_vevhm"]
-[ext_resource type="PackedScene" uid="uid://4tumwy010k6b" path="res://Scenes/MiniGames/Tender/cesto.tscn" id="2_k0lvt"]
-[ext_resource type="Script" path="res://Scenes/MiniGames/Tender/cuerda.gd" id="4_71u0o"]
-[ext_resource type="Texture2D" uid="uid://ufhaqvc7ijh6" path="res://Assets/MiniGames/Tender/cuerda.png" id="5_oikfc"]
+[ext_resource type="Texture2D" uid="uid://ufhaqvc7ijh6" path="res://Assets/MiniGames/Tender/cuerda.png" id="3_y0vvm"]
+[ext_resource type="Script" path="res://Scenes/MiniGames/Tender/cesto.gd" id="4_73ait"]
+[ext_resource type="Texture2D" uid="uid://dv7htacvdjyeo" path="res://Assets/MiniGames/Tender/cesto.png" id="5_nionx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0p7tf"]
-size = Vector2(704, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7s8ep"]
+size = Vector2(739.36, 187.434)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dks8b"]
+size = Vector2(169, 137)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_ij5wx")
 
 [node name="Fondo" type="Sprite2D" parent="."]
-position = Vector2(421, 282)
+position = Vector2(575.5, 323.5)
+scale = Vector2(1.36786, 1.15536)
 texture = ExtResource("1_vevhm")
 
-[node name="Cesto" parent="." instance=ExtResource("2_k0lvt")]
+[node name="Cuerda" type="Sprite2D" parent="."]
+position = Vector2(585, 205)
+scale = Vector2(1.36591, 1)
+texture = ExtResource("3_y0vvm")
 
-[node name="Cuerda" type="Node2D" parent="."]
-script = ExtResource("4_71u0o")
+[node name="AreaColgado" type="Area2D" parent="."]
+position = Vector2(575.5, 323.5)
+scale = Vector2(1.36786, 1.15536)
 
-[node name="Area2D" type="Area2D" parent="Cuerda"]
-position = Vector2(423, 181)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaColgado"]
+position = Vector2(11.8211, -24.0417)
+shape = SubResource("RectangleShape2D_7s8ep")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cuerda/Area2D"]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_0p7tf")
+[node name="Markers" type="Node2D" parent="."]
+position = Vector2(585, 205)
+scale = Vector2(1.36591, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Cuerda"]
-position = Vector2(423, 181)
-texture = ExtResource("5_oikfc")
+[node name="PuntoCoglado1" type="Marker2D" parent="Markers"]
+position = Vector2(-308.218, -4)
 
-[node name="PuntoColgado1" type="Marker2D" parent="Cuerda"]
-position = Vector2(91, 170)
+[node name="PuntoCoglado2" type="Marker2D" parent="Markers"]
+position = Vector2(-241.596, 0)
 
-[node name="PuntoColgado2" type="Marker2D" parent="Cuerda"]
-position = Vector2(173, 178)
+[node name="PuntoCoglado3" type="Marker2D" parent="Markers"]
+position = Vector2(-164.725, 1)
 
-[node name="PuntoColgado3" type="Marker2D" parent="Cuerda"]
-position = Vector2(247, 180)
+[node name="PuntoCoglado4" type="Marker2D" parent="Markers"]
+position = Vector2(-84.9248, -2)
 
-[node name="PuntoColgado4" type="Marker2D" parent="Cuerda"]
-position = Vector2(329, 179)
+[node name="PuntoCoglado5" type="Marker2D" parent="Markers"]
+position = Vector2(-16.1064, -3)
 
-[node name="PuntoColgado5" type="Marker2D" parent="Cuerda"]
-position = Vector2(410, 179)
+[node name="PuntoCoglado6" type="Marker2D" parent="Markers"]
+position = Vector2(63.6936, 1)
 
-[node name="PuntoColgado6" type="Marker2D" parent="Cuerda"]
-position = Vector2(503, 183)
+[node name="PuntoCoglado7" type="Marker2D" parent="Markers"]
+position = Vector2(142.029, 1)
 
-[node name="PuntoColgado7" type="Marker2D" parent="Cuerda"]
-position = Vector2(574, 182)
+[node name="PuntoCoglado8" type="Marker2D" parent="Markers"]
+position = Vector2(218.169, 0)
 
-[node name="PuntoColgado8" type="Marker2D" parent="Cuerda"]
-position = Vector2(639, 179)
+[node name="PuntoCoglado9" type="Marker2D" parent="Markers"]
+position = Vector2(300.165, -1)
 
-[node name="PuntoColgado9" type="Marker2D" parent="Cuerda"]
-position = Vector2(706, 182)
+[node name="Cesto" type="Area2D" parent="."]
+script = ExtResource("4_73ait")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cesto"]
+position = Vector2(232, 558)
+scale = Vector2(1.02911, 0.993976)
+texture = ExtResource("5_nionx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cesto"]
+position = Vector2(232.5, 557.5)
+shape = SubResource("RectangleShape2D_dks8b")

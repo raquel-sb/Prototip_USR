@@ -16,7 +16,6 @@ texture = ExtResource("1_xyu25")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.73663, 1.52206)
 rotation = 0.149833
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_0exik")
 
 [node name="PuntoColgado" type="Marker2D" parent="."]

@@ -3,11 +3,11 @@ extends Node2D
 # @export var hoja_scene: PackedScene
 # Array de escenas de hoja
 var hoja_scenes: Array[PackedScene] = [
-	preload("res://Scenes/MiniGames/Piscina/hoja_01.tscn"),
-	preload("res://Scenes/MiniGames/Piscina/hoja_02.tscn"),
-	preload("res://Scenes/MiniGames/Piscina/hoja_03.tscn"),
-	preload("res://Scenes/MiniGames/Piscina/hoja_04.tscn"),
-	preload("res://Scenes/MiniGames/Piscina/hoja_05.tscn"),
+	preload("res://Scenes/MiniGames/Piscina/Hoja_01.tscn"),
+	preload("res://Scenes/MiniGames/Piscina/Hoja_02.tscn"),
+	preload("res://Scenes/MiniGames/Piscina/Hoja_03.tscn"),
+	preload("res://Scenes/MiniGames/Piscina/Hoja_04.tscn"),
+	preload("res://Scenes/MiniGames/Piscina/Hoja_05.tscn"),
 ]
 
 @export var spawn_interval_range := Vector2(0.25, 2.0)  # intervalo aleatorio entre hojas
