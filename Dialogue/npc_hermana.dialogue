@@ -1,17 +1,3 @@
-[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3 uid="uid://dqvrxmnfe0lby"]
-
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_hfl3h"]
-
-[resource]
-script = ExtResource("1_hfl3h")
-using_states = PackedStringArray()
-titles = {}
-character_names = PackedStringArray()
-first_title = ""
-lines = {}
-raw_text = ""
-
-
 ~ start
 Germana: Què vols!? 
 Germana: Perdona, és que m'he barallat amb la mare i no estic d'humor...
@@ -22,7 +8,8 @@ Germana: Perdona, és que m'he barallat amb la mare i no estic d'humor...
 - La mare té raó 
 	Germana: Tu també? Per això volies parlar amb mi?
 	Germana: Dona igual, me'n vaig. 
-	do GameState.hermana_dict["next"] = "start_mare_te_rao"
+	do GameState.npc_dict["hermana_dict"]["next"] = "start_mare_te_rao"
+	do GameState._on_dialogue_ended()
 	=> END
 	
 
@@ -41,13 +28,16 @@ Germana: Perdona, és que m'he barallat amb la mare i no estic d'humor...
 	do GameState.invitados_fiesta["Hermana"] = true
 - Et trobaré a faltar...
 	Germana: Gràcies per entendre-ho. T'estimo.
-do GameState.hermana_dict["next"] = "start_bloqueado"
+do GameState.npc_dict["hermana_dict"]["next"] = "start_bloqueado"
+do GameState._on_dialogue_ended()
 => END
 
 ~ start_mare_te_rao
 Germana: No tinc ganes de parlar.
+do GameState._on_dialogue_ended()
 => END
 
 ~ start_bloqueado
 Germana: Ara no puc parlar.
+do GameState._on_dialogue_ended()
 => END

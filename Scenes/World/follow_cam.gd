@@ -6,7 +6,7 @@ extends Camera2D
 func _ready() -> void:
 	var map_rectangle = tilemap.get_used_rect()
 	var tile_size = tilemap.rendering_quadrant_size
-	var map_size_in_pixels = map_rectangle.size * tile_size
+	var map_size_in_pixels = map_rectangle.size * tile_size * GameState.world_scale
 	
 	# The camera follows the player until finds bottom or right borders 
 	# (top and left are set to 0 by hand)

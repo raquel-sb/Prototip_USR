@@ -18,9 +18,13 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+GameState="*res://Globals/GameState.gd"
 
 [display]
 
+window/size/viewport_width=1300
+window/size/viewport_height=700
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [editor_plugins]
@@ -61,7 +65,7 @@ interact={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogue/phone.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogue/npc_hermana.dialogue", "res://Dialogue/npc_madre.dialogue", "res://Dialogue/npc_yayo.dialogue", "res://Dialogue/phone.dialogue")
 
 [layer_names]
 

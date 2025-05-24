@@ -1,18 +1,27 @@
 extends CharacterBody2D
 
-@export var move_speed : float = 100
+# @export var move_speed : float = 100
 @export var starting_direction : Vector2 = Vector2(0, 1)
 
 @onready var animation_tree = $AnimationTree
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var state_machine = animation_tree.get("parameters/playback") # allows changing animations
 
+var move_speed : float
+
 var last_velocity : Vector2 = Vector2.ZERO # var to control the flip_h for left sprites
 
 func _ready():
 	update_animation_parameters(starting_direction)
+	move_speed = 100 * GameState.world_scale
 	
 func _physics_process(delta: float) -> void:
+	
+	# No permitir input mientras haya diálogo
+	if not GameState.can_player_act():
+		velocity = Vector2.ZERO
+		return  
+	
 	# Get input directions
 	var input_direction = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
@@ -23,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	update_animation_parameters(input_direction)
 	
 	# Update velocity
-	velocity = input_direction * move_speed
+	velocity = input_direction * move_speed # * GameState.world_scale
 	
 	# Move and slide funciton uses velocity of character body to move character on map
 	move_and_slide() # if you collide to a wall but you can still slide, you will slide

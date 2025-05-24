@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://famuucbwi3hy"
+path="res://.godot/imported/npc_madre.dialogue-4da389d8f64c81e7ab00e26d31402e74.tres"
+
+[deps]
+
+source_file="res://Dialogue/npc_madre.dialogue"
+dest_files=["res://.godot/imported/npc_madre.dialogue-4da389d8f64c81e7ab00e26d31402e74.tres"]
+
+[params]
+
+defaults=true

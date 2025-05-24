@@ -1,0 +1,74 @@
+~ start
+Yayo: Hola Mila, fa un dia molt bonic, veritat?
+do GameState.npc_dict["yayo_dict"]["next"] = "start_rio_2" # "start_bloqueado"
+do GameState._on_dialogue_ended()
+=> END
+
+~ start_bloqueado
+Yayo: ...
+do GameState._on_dialogue_ended()
+=> END
+
+~ start_rio
+Yayo: "Hola Mila"
+- Què fas al riu?
+	Yayo: No res.
+- Desde quan vens al riu?
+	Yayo: Un dies, o una setmana ja?
+do GameState.npc_dict["yayo_dict"]["next"] = "start_rio_2"
+do GameState._on_dialogue_ended()
+=> END
+
+~ start_rio_2
+Yayo: Vols res?
+- Et fa res si t'acompanyo?
+	Yayo: Com vulguis.
+- No tens por de relliscar?
+	Yayo: A aquestes alçades ja no.
+do GameState.npc_dict["yayo_dict"]["next"] = "start_rio_3"
+do GameState._on_dialogue_ended()
+=> END
+
+~ start_rio_3
+Yayo: 
+- Observar el riu
+	Yayo: És hipnòtic, veritat?
+- Observar l'avi
+	Yayo: No cal que em vigilis.
+do GameState.npc_dict["yayo_dict"]["next"] = "start_rio_4"
+do GameState._on_dialogue_ended()
+=> END 
+
+~ start_rio_4
+if GameState.npc_dict["yayo_dict"]["amount_talk_river"] == 0:
+	Yayo: Estic bé, no necessito res.
+elif GameState.npc_dict["yayo_dict"]["amount_talk_river"] == 1:
+	Yayo: De veritat que estic bé.
+elif GameState.npc_dict["yayo_dict"]["amount_talk_river"] == 2:
+	Yayo: ...
+do GameState.npc_dict["yayo_dict"]["amount_talk_river"] += 1
+if GameState.npc_dict["yayo_dict"]["amount_talk_river"] >= 3:
+	=> start_rio_5
+else:
+	do GameState._on_dialogue_ended()
+	=> END
+
+~ start_rio_5
+Yayo: En veritat...
+Yayo: Estic aqui per mon germà.
+Yayo: Ell...
+Yayo: Va morir ofegat quan erem petits, en aquest riu.
+Yayo: Desde llavors li he tingut pànic.
+Yayo: Però no volia marxar sense fer les paus.
+Yayo: ...
+Yayo: Li encantava nedar, i jo he trigat 60 anys a tornar-ho a fer.
+Yayo: Gràcies per escoltar-me.
+do GameState.invitados_fiesta["Yayo"] = true
+do GameState.npc_dict["yayo_dict"]["next"] = "start_rio_bloqueado"
+do GameState._on_dialogue_ended()
+=> END
+
+~ start_rio_bloqueado
+Yayo: No et preocupis, arribaré a temps per la teva festa.
+do GameState._on_dialogue_ended()
+=> END

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://c7tmqskhxc0cd"
+path="res://.godot/imported/npc_hermana.dialogue-da6646710d02d4db45b713e35089811a.tres"
+
+[deps]
+
+source_file="res://Dialogue/npc_hermana.dialogue"
+dest_files=["res://.godot/imported/npc_hermana.dialogue-da6646710d02d4db45b713e35089811a.tres"]
+
+[params]
+
+defaults=true

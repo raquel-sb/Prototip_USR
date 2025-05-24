@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://dmc7nd6fj6d0n"
+path="res://.godot/imported/npc_yayo.dialogue-cd4cdb7d891cc1ae7728b1e203fd098d.tres"
+
+[deps]
+
+source_file="res://Dialogue/npc_yayo.dialogue"
+dest_files=["res://.godot/imported/npc_yayo.dialogue-cd4cdb7d891cc1ae7728b1e203fd098d.tres"]
+
+[params]
+
+defaults=true

@@ -9,6 +9,12 @@ var can_interact: bool = true
 
 # When user's press the interaction button, the label dissapears
 func _input(event: InputEvent) -> void:
+	
+	# bloquea todos los inputs si hay diálogo
+	if GameState.is_dialogue_playing:
+		return  
+	
+	# Si puede existir interacción
 	if event.is_action_pressed("interact") and can_interact:
 		if current_interactions:
 			can_interact = false # deactivate

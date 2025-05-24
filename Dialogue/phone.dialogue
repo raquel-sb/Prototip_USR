@@ -5,5 +5,8 @@
 - Germana
 	Germana: [[Hey, que passa??|Deixa't de bromes, va.]]
 	Germana: Penjo.      PIIIIIIIIIP
-- No trucar => END
+- No trucar 
+	do GameState._on_dialogue_ended()
+	=> END
+do GameState._on_dialogue_ended()
 => END
