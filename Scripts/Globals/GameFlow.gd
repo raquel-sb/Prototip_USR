@@ -21,8 +21,25 @@ func trigger_event(event_id: String) -> void:
 
 func start_minigame(minigame_scene_path: String):
 	# Guardar escena actual si quieres volver luego
-	GameState.previous_scene_path = get_tree().current_scene.scene_file_path
-	get_tree().change_scene_to_file(minigame_scene_path)
+	SceneManager.remember_new_scene(minigame_scene_path)
+	
+	# Cambiamos a la escena del minijuego
+	# get_tree().change_scene_to_file(minigame_scene_path)
+	get_tree().call_deferred("change_scene_to_file", minigame_scene_path)
+	
+	# Print opcional
+	print("Path ", GameState.previous_scene_path)
+
+
+func end_minigame():
+	print("Minijuego terminado")
+	
+	# Vuelve a la escena anterior guardada
+	# get_tree().change_scene_to_file(GameState.previous_scene_path)
+	if GameState.previous_scene_path:
+		get_tree().call_deferred("change_scene_to_file", GameState.previous_scene_path)
+	else:
+		print("Warning! No existe previous scene path")
 
 '''
 func launch_minigame(path_to_minigame: String, parent: Node):

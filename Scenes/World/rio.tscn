@@ -869,7 +869,7 @@ shape = SubResource("RectangleShape2D_jw6sy")
 [node name="EntranceMarkers" type="Node2D" parent="."]
 
 [node name="casa" type="Marker2D" parent="EntranceMarkers"]
-position = Vector2(60, 234)
+position = Vector2(60, 233)
 
 [node name="FollowCam" type="Camera2D" parent="." node_paths=PackedStringArray("tilemap")]
 limit_left = 0

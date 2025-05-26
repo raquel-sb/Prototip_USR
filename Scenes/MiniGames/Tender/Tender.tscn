@@ -78,15 +78,16 @@ texture = ExtResource("5_nionx")
 position = Vector2(232.5, 557.5)
 shape = SubResource("RectangleShape2D_dks8b")
 
+[node name="PrendaContainer" type="Node2D" parent="."]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ButtonTerminar" type="Button" parent="CanvasLayer"]
-offset_left = 1060.0
-offset_top = 33.0
-offset_right = 1112.0
+offset_left = 1016.0
+offset_top = 20.0
+offset_right = 1115.0
 offset_bottom = 64.0
+action_mode = 0
 text = "Sortir"
-
-[node name="PrendaContainer" type="Node2D" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/ButtonTerminar" to="." method="_on_button_terminar_pressed"]

@@ -48,11 +48,7 @@ func buscar_punto_mas_cercano_disponible(posicion_prenda: Vector2) -> Marker2D:
 	return punto_mas_cercano
 
 
-func end_minigame():
-	print("Minijuego terminado")
-	# Vuelve a la escena anterior guardada
-	get_tree().change_scene_to_file(GameState.previous_scene_path)
-
-
 func _on_button_terminar_pressed() -> void:
-	end_minigame()
+	print("Button terminar pressed")
+	$CanvasLayer/ButtonTerminar.disabled = true
+	GameFlow.end_minigame()

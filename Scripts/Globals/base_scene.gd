@@ -6,23 +6,43 @@ class_name BaseScene extends Node
 @onready var npc_container: Node2D = $NPCContainer
 
 func _ready() -> void:
-	# Move player and camera
-	if SceneManager.player:
-		if player:
-			player.queue_free()
-		
+	# Save current scene path
+	var current_path = get_tree().current_scene.scene_file_path
+	SceneManager.remember_new_scene(current_path)
+	
+	# Update player
+	if not SceneManager.player:
+		SceneManager.set_player(player) # Primera vez que cargamos
+	if not player:
 		player = SceneManager.player
+		print("Add player")
 		add_child(player)
+
+	# Move camera
+	camera.follow_node = player
+	camera.make_current()
+	camera.zoom = GameState.zoom_camera_scene[self.name]
+	
+	'''
+	if SceneManager.player:
+		if not player:
+			player = SceneManager.player
+			add_child(player)
+			# player.queue_free()
 		
-		camera.follow_node = player
-		camera.make_current()
-		camera.zoom = GameState.zoom_camera_scene[self.name]
+		# player = SceneManager.player
+		# add_child(player)
+	else:
+		SceneManager.set_player(player)
+	'''
 	
 	# Set position of the player
-	if GameState.player.saved_position:
-		player.global_position = GameState.player.saved_position
-		GameState.player.saved_position = null
+	if GameState.player_data.saved_position:
+		print("Saved pos")
+		player.global_position = GameState.player_data.saved_position
+		GameState.player_data.saved_position = null
 	else:
+		print("Not saved pos")
 		position_player()
 	
 	# Spawn the NPC's
@@ -39,4 +59,5 @@ func position_player() -> void:
 	for entrance in entrance_markers.get_children():
 		if entrance is Marker2D and (entrance.name == "any" or entrance.name == last_scene):
 			player.global_position = entrance.global_position
+			# SceneManager.player.global_position = entrance.global_position
 			pass

@@ -3,9 +3,10 @@ extends Node
 var is_dialogue_playing : bool = false
 var world_scale : float = 1
 var previous_scene_path : String
+var current_scene_path : String
 
 
-var player = {
+var player_data = {
 	"saved_position" = null,
 }
 # zooms de cámara
