@@ -16,7 +16,7 @@ func _input(event: InputEvent) -> void:
 	
 	# Si puede existir interacción
 	if event.is_action_pressed("interact") and can_interact:
-		if current_interactions:
+		if current_interactions and current_interactions[0].is_interactable:
 			can_interact = false # deactivate
 			interact_label.hide() # hide label / text of the interaction
 			

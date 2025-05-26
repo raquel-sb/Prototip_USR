@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://ieuq5evv45jy"]
+[gd_scene load_steps=24 format=4 uid="uid://ieuq5evv45jy"]
 
 [ext_resource type="Texture2D" uid="uid://chhjb8maoxmgf" path="res://Assets/Environment/Tilesets/Water_tiles.png" id="1_1e100"]
 [ext_resource type="Script" path="res://Scenes/World/rio_scene.gd" id="1_o8fds"]
@@ -7,7 +7,9 @@
 [ext_resource type="TileSet" uid="uid://fsjfwl81lo7y" path="res://Assets/Environment/Saved_Tiles/vegetation_tiles.tres" id="4_quiky"]
 [ext_resource type="TileSet" uid="uid://bj54xcdcsama8" path="res://Assets/Environment/Saved_Tiles/trees_tiles.tres" id="5_oq660"]
 [ext_resource type="PackedScene" uid="uid://pluo35ltuc8w" path="res://Scripts/SceneTrigger/scene_trigger.tscn" id="6_yby74"]
-[ext_resource type="Script" path="res://Scenes/World/follow_cam.gd" id="8_bbsv3"]
+[ext_resource type="Script" path="res://Scripts/follow_cam.gd" id="8_bbsv3"]
+[ext_resource type="Script" path="res://InteractionComponents/interactable.gd" id="9_y7ftc"]
+[ext_resource type="Script" path="res://Scripts/EventTriggers/event_trigger_base.gd" id="10_tw2fs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rb6he"]
 texture = ExtResource("2_mgqbw")
@@ -793,6 +795,12 @@ size = Vector2(20, 443)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jw6sy"]
 size = Vector2(28.5, 54)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vw1p"]
+size = Vector2(40, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4s1ba"]
+size = Vector2(20, 44)
+
 [node name="rio" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_o8fds")
@@ -880,3 +888,27 @@ tilemap = NodePath("../FloorHolder/CamFloor")
 
 [node name="NPCContainer" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="SceneLabel" type="Node2D" parent="."]
+
+[node name="CasaLabel" type="StaticBody2D" parent="SceneLabel"]
+
+[node name="Interactable" type="Area2D" parent="SceneLabel/CasaLabel"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("9_y7ftc")
+interact_name = "Casa"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneLabel/CasaLabel/Interactable"]
+position = Vector2(23, 237)
+shape = SubResource("RectangleShape2D_1vw1p")
+
+[node name="EventTrigger" type="Node2D" parent="."]
+
+[node name="fin_prototipo" type="Area2D" parent="EventTrigger"]
+script = ExtResource("10_tw2fs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EventTrigger/fin_prototipo"]
+position = Vector2(60, 231)
+shape = SubResource("RectangleShape2D_4s1ba")
+debug_color = Color(0.96316, 9.62615e-08, 0.500355, 0.42)

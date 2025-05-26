@@ -1,6 +1,7 @@
 extends Node
 
 var player: Player
+var mensaje_final : Label
 
 func create_player_if_needed():
 	if player == null:

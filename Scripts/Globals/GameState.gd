@@ -4,27 +4,32 @@ var is_dialogue_playing : bool = false
 var world_scale : float = 1
 var previous_scene_path : String
 var current_scene_path : String
+var cake : bool = false
 
 
 var player_data = {
-	"saved_position" = Vector2(186, 732),
+	"saved_position" = Vector2(347, 176),
 }
 # zooms de cámara
 var zoom_camera_scene = {
 	"rio" = Vector2(2, 2),
 	"casa" = Vector2(2, 2),
+	"end" = Vector2(2, 2),
 }
 # Condiciones del juego
+'''
 var talked_to = {
 	"hermana": false,
 	"abuelo": false,
 	"madre": false
 }
+'''
 
 var invitados_fiesta = {
 	"hermana": false,
 	"abuelo": false,
-	"maite": false
+	"madre" : true,
+	# "maite": false
 }
 
 var completed_events = {

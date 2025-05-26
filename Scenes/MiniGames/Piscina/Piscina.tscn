@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc8f24yxuoi74"]
+[gd_scene load_steps=6 format=3 uid="uid://bc8f24yxuoi74"]
 
+[ext_resource type="Script" path="res://Scenes/MiniGames/Piscina/piscina.gd" id="1_0x5dk"]
 [ext_resource type="Texture2D" uid="uid://c7gyree6q0vcl" path="res://Assets/MiniGames/Piscina/Fondo.png" id="1_2fetv"]
 [ext_resource type="PackedScene" uid="uid://sd6j6q3q1u3" path="res://Scenes/MiniGames/Piscina/Red.tscn" id="2_q03o2"]
 [ext_resource type="PackedScene" uid="uid://d2a5lcyf0hrdx" path="res://Scenes/MiniGames/Piscina/Hoja_01.tscn" id="3_6nxkb"]
@@ -7,6 +8,7 @@
 
 [node name="Node2D" type="Node2D"]
 scale = Vector2(0.602397, 0.602397)
+script = ExtResource("1_0x5dk")
 
 [node name="Fondo" type="Sprite2D" parent="."]
 position = Vector2(961, 540)
@@ -22,3 +24,14 @@ position = Vector2(1653.4, 225.765)
 [node name="HojaSpawner" type="Node2D" parent="."]
 position = Vector2(1923.98, 195.884)
 script = ExtResource("4_pmo7g")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ButtonTerminar" type="Button" parent="CanvasLayer"]
+offset_left = 1025.0
+offset_top = 43.0
+offset_right = 1100.0
+offset_bottom = 74.0
+text = "Sortir"
+
+[connection signal="pressed" from="CanvasLayer/ButtonTerminar" to="." method="_on_button_pressed"]

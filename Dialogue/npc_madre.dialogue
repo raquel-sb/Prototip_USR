@@ -16,3 +16,18 @@ do GameState._on_dialogue_ended()
 Mare: He de sortir una estona, però tornaré de seguida.
 do GameState._on_dialogue_ended()
 => END
+
+~ final_dialogue
+if GameState.invitados_fiesta["abuelo"] and GameState.invitados_fiesta["hermana"]:
+	Mare: Estic molt feliç d' estar amb tota la familia reunida.
+elif GameState.invitados_fiesta["abuelo"]:
+	Mare: Només falta la teva germana... M'alegra saber que almenys està amb la Maria
+elif GameState.invitados_fiesta["hermana"]:
+	Mare: Em pregunto on estarà el teu avi... M'hagués agradat donar-li una última abraçada.
+else:
+	Mare: Gràcies per haver tingut la idea de la festa. És un detall preciós.
+	Mare: Tant de bo haguessin vingut ta germana i l'avi...
+Mare: T'estimo Mila.
+do GameFlow.trigger_event("mensaje_final")
+do GameState._on_dialogue_ended()
+=> END

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://btshhfmqurbe6"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/cake.gd" id="1_1ueyx"]
+[ext_resource type="Texture2D" uid="uid://cdimoeid3b73h" path="res://Assets/InteriorHouse/item_cake.png" id="2_qxs1n"]
+[ext_resource type="PackedScene" uid="uid://dv2g7vegbocbx" path="res://InteractionComponents/interactable.tscn" id="3_twpec"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbhdx"]
+size = Vector2(137, 174)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p5rht"]
+radius = 164.076
+
+[node name="cake" type="StaticBody2D"]
+script = ExtResource("1_1ueyx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_qxs1n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 84)
+shape = SubResource("RectangleShape2D_wbhdx")
+
+[node name="Interactable" parent="." instance=ExtResource("3_twpec")]
+interact_name = "Començar la festa"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_p5rht")
+debug_color = Color(0, 0.6, 0.0901961, 0.419608)

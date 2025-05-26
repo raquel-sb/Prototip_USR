@@ -15,6 +15,11 @@ func trigger_event(event_id: String) -> void:
 			request_npc_move("madre", "", Vector2.ZERO)
 		"madre_vuelve_casa":
 			request_npc_move("madre", "casa", NPCManager.npc_positions["madre"]["casa"])
+		"fin_prototipo":
+			GameState.cake = true
+		"mensaje_final":
+			if Game.mensaje_final:
+				Game.mensaje_final.visible = true
 		_:
 			push_warning("Unknown event: " + event_id)
 
