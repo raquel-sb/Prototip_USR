@@ -1,39 +1,26 @@
 ~ start
 Germana: Què vols!? 
 Germana: Perdona, és que m'he barallat amb la mare i no estic d'humor...
-- Em sap greu
-	Germana: No té res a veure amb tu, ho saps, oi? 
-	Germana: T'estimo molt però he de marxar, la Maria m'està esperant.
-	=> start_em_sap_greu
-- La mare té raó 
-	Germana: Tu també? Per això volies parlar amb mi?
-	Germana: Dona igual, me'n vaig. 
-	do GameState.npc_dict["hermana_dict"]["next"] = "start_mare_te_rao"
-	do GameState._on_dialogue_ended()
-	=> END
-	
+Germana: Però no té res a veure amb tu, ho saps, oi? 
+Germana: T'estimo molt però he de marxar, la Maria m'està esperant.
+=> start_em_sap_greu	
 
 ~ start_em_sap_greu
 - Però jo vull que et quedis
-	Germana: Ho sento molt Palometa, però també vull passar temps amb ella.
+	Germana: Ho sento molt palometa, però també vull passar temps amb ella.
 	=> start_em_sap_greu_2
 - I la festa?
-	Germana: Sé que és important per a tu, però hi serà la mama i l'avi.
+	Germana: Sé que és important per a tu, però hi serà la mama.
 	=> start_em_sap_greu_2
 
 ~ start_em_sap_greu_2
 - La Maria també està invitada!
 	Germana: Sí, estàs segura? 
 	Germana: Jajaja! Ets un sol, ho sabies? Aniré a preguntar-lis llavors, però no prometo res!
-	do GameState.invitados_fiesta["Hermana"] = true
+	do GameState.invitados_fiesta["hermana"] = true
 - Et trobaré a faltar...
 	Germana: Gràcies per entendre-ho. T'estimo.
-do GameState.npc_dict["hermana_dict"]["next"] = "start_bloqueado"
-do GameState._on_dialogue_ended()
-=> END
-
-~ start_mare_te_rao
-Germana: No tinc ganes de parlar.
+do NPCManager.npc_states["hermana"]["next_dialogue"] = "start_bloqueado"
 do GameState._on_dialogue_ended()
 => END
 

@@ -2,34 +2,32 @@ extends Node
 
 var is_dialogue_playing : bool = false
 var world_scale : float = 1
+var previous_scene_path : String
 
+
+var player = {
+	"saved_position" = null,
+}
+# zooms de cámara
+var zoom_camera_scene = {
+	"rio" = Vector2(2, 2),
+	"casa" = Vector2(2, 2),
+}
 # Condiciones del juego
 var talked_to = {
-	"Hermana": false,
-	"Yayo": false,
-	"Madre": false
+	"hermana": false,
+	"abuelo": false,
+	"madre": false
 }
 
 var invitados_fiesta = {
-	"Hermana": false,
-	"Yayo": false,
-	"Marga": false
+	"hermana": false,
+	"abuelo": false,
+	"maite": false
 }
 
-# Diccionarios NPCs de conversaciones
-var npc_dict = {
-	"madre_dict" = {
-		"next": "start",
-	},
-	
-	"hermana_dict" = {
-		"next": "start",
-	},
-	
-	"yayo_dict" = {
-		"next": "start",
-		"amount_talk_river": 0
-	},
+var completed_events = {
+	"abuelo_a_rio": false,
 }
  
 

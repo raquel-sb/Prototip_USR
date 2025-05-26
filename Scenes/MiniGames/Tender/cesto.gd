@@ -1,5 +1,6 @@
 extends Area2D
 
+
 @export var lista_prendas: Array[PackedScene] = [
 	preload("res://Scenes/MiniGames/Tender/PrendaToalla.tscn"),
 	preload("res://Scenes/MiniGames/Tender/PrendaShort.tscn"),
@@ -8,7 +9,10 @@ extends Area2D
 	preload("res://Scenes/MiniGames/Tender/PrendaJersey.tscn"),
 	preload("res://Scenes/MiniGames/Tender/PrendaCamiseta.tscn")
 ]
+
 @onready var zona_colision = $CollisionShape2D
+@onready var prenda_container = $"../PrendaContainer"
+
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -37,7 +41,8 @@ func sacar_prenda():
 	# Creamos el nodo en la escena
 	var nueva_prenda = prenda_escena.instantiate()
 	nueva_prenda.scene_referencia = prenda_escena  # <- Guardamos de dónde vino (la escena)
-	get_tree().root.add_child(nueva_prenda)
+	# get_tree().root.add_child(nueva_prenda)
+	prenda_container.add_child(nueva_prenda)
 	nueva_prenda.global_position = get_viewport().get_mouse_position()
 	
 	# Indicamos que esta nueva prenda está en la "mano" del jugador

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b15bim5rn58j6"]
+[gd_scene load_steps=8 format=3 uid="uid://b15bim5rn58j6"]
 
 [ext_resource type="Texture2D" uid="uid://grxnva6bmdv2" path="res://Assets/Characters/Hermana_sprite.png" id="1_7nj4u"]
 [ext_resource type="Script" path="res://Scenes/Characters/NPC/npc.gd" id="1_r0lrh"]
 [ext_resource type="Resource" uid="uid://c7tmqskhxc0cd" path="res://Dialogue/npc_hermana.dialogue" id="2_asas8"]
+[ext_resource type="TileSet" uid="uid://dfspfjfm4bf7b" path="res://Assets/Environment/Saved_Tiles/shadows_tiles.tres" id="3_i72f4"]
 [ext_resource type="Script" path="res://Scenes/Characters/NPC/interactable.gd" id="4_yinsw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ysdas"]
@@ -13,15 +14,9 @@ height = 126.0
 radius = 16.0
 height = 54.0
 
-[node name="Hermana" type="StaticBody2D"]
+[node name="hermana" type="StaticBody2D"]
 script = ExtResource("1_r0lrh")
-npc_dict_name = "hermana_dict"
 dialogue_script = ExtResource("2_asas8")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(40, 80)
-scale = Vector2(0.513667, 0.554497)
-texture = ExtResource("1_7nj4u")
 
 [node name="Interactable" type="Area2D" parent="."]
 position = Vector2(39, 82)
@@ -34,6 +29,19 @@ interact_name = "Parlar"
 position = Vector2(0, -4)
 shape = SubResource("CapsuleShape2D_ysdas")
 debug_color = Color(1.73271e-06, 0.64878, 0.169049, 0.42)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Shadow" type="TileMapLayer" parent="Node2D"]
+position = Vector2(-29, -62)
+scale = Vector2(1.74872, 1.43378)
+tile_map_data = PackedByteArray(0, 0, 2, 0, 8, 0, 0, 0, 3, 0, 5, 0, 0, 0)
+tile_set = ExtResource("3_i72f4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(40, 80)
+scale = Vector2(0.513667, 0.554497)
+texture = ExtResource("1_7nj4u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(40, 95)

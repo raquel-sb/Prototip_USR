@@ -18,7 +18,10 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-GameState="*res://Globals/GameState.gd"
+GameState="*res://Scripts/Globals/GameState.gd"
+SceneManager="*res://Scripts/Globals/SceneManager.gd"
+GameFlow="*res://Scripts/Globals/GameFlow.gd"
+NPCManager="*res://Scripts/Globals/NPCManager.gd"
 
 [display]
 

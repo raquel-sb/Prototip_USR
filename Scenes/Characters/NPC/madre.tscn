@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://xlwi3hl2vfbw"]
+[gd_scene load_steps=7 format=3 uid="uid://xlwi3hl2vfbw"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/NPC/npc.gd" id="1_ch1ku"]
 [ext_resource type="Texture2D" uid="uid://btxlh85vcj7k5" path="res://Assets/Characters/Madre_sprite.png" id="1_mq1kb"]
+[ext_resource type="TileSet" uid="uid://dfspfjfm4bf7b" path="res://Assets/Environment/Saved_Tiles/shadows_tiles.tres" id="2_pv4cp"]
 [ext_resource type="Script" path="res://Scenes/Characters/NPC/interactable.gd" id="3_b3hvk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uhxy1"]
@@ -12,14 +13,8 @@ height = 138.0
 radius = 20.0
 height = 54.0
 
-[node name="Madre" type="StaticBody2D"]
+[node name="madre" type="StaticBody2D"]
 script = ExtResource("1_ch1ku")
-npc_dict_name = "madre_dict"
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(38, 72)
-texture = ExtResource("1_mq1kb")
-vframes = 3
 
 [node name="Interactable" type="Area2D" parent="."]
 collision_layer = 2
@@ -31,6 +26,19 @@ interact_name = "Mare"
 position = Vector2(38, 79)
 shape = SubResource("CapsuleShape2D_uhxy1")
 debug_color = Color(0.157499, 0.643087, 0.129437, 0.42)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Shadow" type="TileMapLayer" parent="Node2D"]
+position = Vector2(-28, -87)
+scale = Vector2(1.67536, 1.63268)
+tile_map_data = PackedByteArray(0, 0, 2, 0, 8, 0, 0, 0, 3, 0, 5, 0, 0, 0)
+tile_set = ExtResource("2_pv4cp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(38, 72)
+texture = ExtResource("1_mq1kb")
+vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(39, 95)

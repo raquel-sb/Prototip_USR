@@ -13,6 +13,8 @@ size = Vector2(739.36, 187.434)
 size = Vector2(169, 137)
 
 [node name="Node2D" type="Node2D"]
+z_index = -10
+position = Vector2(1, 0)
 script = ExtResource("1_ij5wx")
 
 [node name="Fondo" type="Sprite2D" parent="."]
@@ -75,3 +77,16 @@ texture = ExtResource("5_nionx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cesto"]
 position = Vector2(232.5, 557.5)
 shape = SubResource("RectangleShape2D_dks8b")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ButtonTerminar" type="Button" parent="CanvasLayer"]
+offset_left = 1060.0
+offset_top = 33.0
+offset_right = 1112.0
+offset_bottom = 64.0
+text = "Sortir"
+
+[node name="PrendaContainer" type="Node2D" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/ButtonTerminar" to="." method="_on_button_terminar_pressed"]

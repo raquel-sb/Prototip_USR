@@ -5,6 +5,10 @@ extends Node2D
 
 # Distancia mínima para que no se solapen prendas colgadas
 const RADIO_MINIMO = 1
+signal minigame_finished
+
+func _ready():
+	print("Minijuego iniciado")
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -42,3 +46,13 @@ func buscar_punto_mas_cercano_disponible(posicion_prenda: Vector2) -> Marker2D:
 				punto_mas_cercano = punto
 	# print(" ")
 	return punto_mas_cercano
+
+
+func end_minigame():
+	print("Minijuego terminado")
+	# Vuelve a la escena anterior guardada
+	get_tree().change_scene_to_file(GameState.previous_scene_path)
+
+
+func _on_button_terminar_pressed() -> void:
+	end_minigame()

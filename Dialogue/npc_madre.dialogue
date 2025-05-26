@@ -3,14 +3,12 @@ Mare: Uff, no puc més
 Mare: Hay, perdona Mila! Estava parlant sola, què vols?
 - Estàs bé?
 	Mare: Sí.
-	Mare: No ho sé...
-	Mare: És tot massa complicat, però tu no et preocupis, que són coses meves.
+	Mare: Bueno, no ho sé... És tot massa complicat, però tu no et preocupis, que són coses meves.
 	Mare: Per cert, el pastís! No l'hem de treure del forn fins després de dinar.
 	Mare: I res d'intentar fer un tasteig abans! Encara està massa cru.
 - I el pastís?
-	Mare: Encara està al forn, trigarà una bona estona.
-	Mare: Però estarà a temps per la festa!
-do GameState.npc_dict["madre_dict"]["next"] = "start_bloqueado"
+	Mare: Encara està al forn, trigarà una bona estona. Però estarà a temps per la festa!
+do NPCManager.npc_states["madre"]["next_dialogue"] = "start_bloqueado"
 do GameState._on_dialogue_ended()
 => END
 
