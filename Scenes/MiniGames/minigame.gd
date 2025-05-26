@@ -14,7 +14,7 @@ func _on_interact():
 	# interactable.interact_name = "Is not answering ..."
 	print("interact")
 	# GameFlow.launch_minigame(minigame_scene, get_tree().get_current_scene().get_node("MinigameLayer"))
-	print("Player pos: ", SceneManager.player.global_position)
-	print("Is inside tree?", SceneManager.player.is_inside_tree())
-	GameState.player_data.saved_position = SceneManager.player.global_position #player_node.position #  Guardamos current position del player
-	GameFlow.start_minigame(minigame_scene)
+	print("Player pos: ", Game.player.global_position)
+	print("Is inside tree?", Game.player.is_inside_tree())
+	GameState.player_data.saved_position = Game.player.global_position #player_node.position #  Guardamos current position del player
+	GameFlow.start_minigame(minigame_scene, get_tree().get_current_scene())

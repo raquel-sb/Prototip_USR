@@ -15,11 +15,12 @@ radius = 24.0
 height = 60.0
 
 [node name="abuelo" type="StaticBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_kunxx")
 dialogue_script = ExtResource("2_1wpjl")
 
 [node name="Interactable" type="Area2D" parent="."]
-position = Vector2(39, 82)
+position = Vector2(36, 89)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("4_t3x80")
@@ -31,6 +32,7 @@ shape = SubResource("CapsuleShape2D_lgg7b")
 debug_color = Color(1.73271e-06, 0.64878, 0.169049, 0.42)
 
 [node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-3, 7)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Node2D"]
 position = Vector2(-44, -148)
@@ -39,10 +41,10 @@ tile_map_data = PackedByteArray(0, 0, 2, 0, 8, 0, 0, 0, 3, 0, 5, 0, 0, 0)
 tile_set = ExtResource("4_u8vn7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(38, 72)
+position = Vector2(35, 79)
 texture = ExtResource("3_ewe74")
 vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(38, 88)
+position = Vector2(35, 95)
 shape = SubResource("CapsuleShape2D_kee4s")

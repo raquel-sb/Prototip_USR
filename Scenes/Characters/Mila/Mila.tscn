@@ -533,7 +533,7 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace2D_gf8kq")
 states/Walk/position = Vector2(517, 92)
 transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_8mkha"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_nv3td"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_3onro")]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Mila" type="CharacterBody2D"]
 script = ExtResource("1_c5fnx")
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -568,4 +568,5 @@ parameters/Idle/blend_position = Vector2(0.00794911, 0.379646)
 parameters/Walk/blend_position = Vector2(-0.135135, 0.0486727)
 
 [node name="InteractingComponent" parent="." instance=ExtResource("8_bhp1f")]
+y_sort_enabled = true
 position = Vector2(0, 6)

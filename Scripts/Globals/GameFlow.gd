@@ -19,9 +19,13 @@ func trigger_event(event_id: String) -> void:
 			push_warning("Unknown event: " + event_id)
 
 
-func start_minigame(minigame_scene_path: String):
+func start_minigame(minigame_scene_path: String, from: Node2D):
 	# Guardar escena actual si quieres volver luego
 	SceneManager.remember_new_scene(minigame_scene_path)
+	
+	# Escondemos al jugador
+	# Game.player.visible = false
+	Game.remove_player(from)
 	
 	# Cambiamos a la escena del minijuego
 	# get_tree().change_scene_to_file(minigame_scene_path)
@@ -33,6 +37,9 @@ func start_minigame(minigame_scene_path: String):
 
 func end_minigame():
 	print("Minijuego terminado")
+	
+	# Mostramos al jugador
+	# Game.player.visible = true
 	
 	# Vuelve a la escena anterior guardada
 	# get_tree().change_scene_to_file(GameState.previous_scene_path)

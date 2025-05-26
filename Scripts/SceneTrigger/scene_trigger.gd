@@ -4,4 +4,4 @@ class_name SceneTrigger extends Node
 
 func _on_body_entered(body):
 	if body is Player:
-		SceneManager.change_scene(body, get_owner(), connected_scene)
+		SceneManager.change_scene(get_owner(), connected_scene)

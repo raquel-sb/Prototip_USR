@@ -10,15 +10,21 @@ func _ready() -> void:
 	var current_path = get_tree().current_scene.scene_file_path
 	SceneManager.remember_new_scene(current_path)
 	
-	# Update player
-	if not SceneManager.player:
-		SceneManager.set_player(player) # Primera vez que cargamos
-	if not player:
-		player = SceneManager.player
-		print("Add player")
+	# Asegurarse de que el player existe
+	Game.create_player_if_needed()
+	player = Game.player
+	if not player.is_inside_tree() or player.get_parent() != self:
+		print("Player added to ", self.name)
 		add_child(player)
+		print("Player parent post: ", player.get_parent().name)
 
-	# Move camera
+	# Aseguramos ordenación del player
+	# player.visible = true
+	player.z_index = 0
+	player.z_as_relative = true
+	player.y_sort_enabled = true
+		
+	# Mover camara
 	camera.follow_node = player
 	camera.make_current()
 	camera.zoom = GameState.zoom_camera_scene[self.name]
@@ -38,7 +44,7 @@ func _ready() -> void:
 	
 	# Set position of the player
 	if GameState.player_data.saved_position:
-		print("Saved pos")
+		print("Saved pos: ", GameState.player_data.saved_position)
 		player.global_position = GameState.player_data.saved_position
 		GameState.player_data.saved_position = null
 	else:
@@ -47,6 +53,8 @@ func _ready() -> void:
 	
 	# Spawn the NPC's
 	NPCManager.spawn_npcs(self)
+	
+	print("Global pos: ", player.global_position)
 
 
 

@@ -7,7 +7,7 @@ var current_scene_path : String
 
 
 var player_data = {
-	"saved_position" = null,
+	"saved_position" = Vector2(186, 732),
 }
 # zooms de cámara
 var zoom_camera_scene = {

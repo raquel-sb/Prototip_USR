@@ -15,6 +15,7 @@ radius = 16.0
 height = 54.0
 
 [node name="hermana" type="StaticBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_r0lrh")
 dialogue_script = ExtResource("2_asas8")
 

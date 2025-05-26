@@ -38,8 +38,8 @@ var npc_positions = {
 		"casa": Vector2(256, 726)
 	},
 	"abuelo": {
-		"casa": Vector2(226, 195),
-		"rio": Vector2(455, 241)
+		# "casa": Vector2(226, 195),
+		"rio": Vector2(337, 203)
 	},
 }
 

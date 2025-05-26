@@ -14,6 +14,7 @@ radius = 20.0
 height = 54.0
 
 [node name="madre" type="StaticBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_ch1ku")
 
 [node name="Interactable" type="Area2D" parent="."]

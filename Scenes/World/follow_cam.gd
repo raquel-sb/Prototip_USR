@@ -1,7 +1,7 @@
 extends Camera2D
 
 @export var tilemap: TileMapLayer
-@export var follow_node: Node2D
+@export var follow_node: Player
 
 func _ready() -> void:
 	var map_rectangle = tilemap.get_used_rect()
